@@ -1,0 +1,18 @@
+- Crear Proyecto: ng new nombreProyecto
+- Mostrar Variables: {{ nombreVariable }} para asignar variables en angular
+por ej <h1> pepe = {{ show }} </h1>
+Cuando le asigne algo a show en alguna parte, se modificaria el h1
+
+DIRECTIVAS
+
+- *ngif = "condicion que quiera poner"
+Para usar else:
+*ngif = "condicion que quiera poner; else variableDos"
+<ng-template #variableDos> Mostrar esto en caso de else </ng-template>
+
+- [ngClass] = " 'atributo para la clase que quiera agregar' "(por ej bg-dark)
+tambien puedo agregar condiciones en lugar de solo atributos:
+Ejemplo{ 'bg-dark' : variable=true}, fondo dark sii la variable es true
+
+- [(ngModel)] = "pepe" ---- Puedo usarlo en algun atributo de html, y lo que
+ponga en ese atributo, ira a guardarse a la variable pepe

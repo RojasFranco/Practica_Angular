@@ -1,0 +1,40 @@
+******************	Routing		******************
+- en importaciones (app.module.ts):
+1)  import { RouterModule, Routes } from '@angular/router'
+
+2) const routes: Routes = [
+  { path: "nombreRuta", component: elComponenteAUsar }
+];
+
+3) dentro de @NgModule---> en imports:
+  RouterModule.forRoot(routes);
+
+4) En app.component.html:
+  <router-outlet></router-outlet> ---> para que se ejecute la ruta
+cuando se solicite
+
+**********	PARA RUTAS DESCONOCIDAS
+en const routes agregamos:
+ { path '', component: InicioComponent, pathMatch: 'full' } (iniciocomponent es ejemplo)
+ { path: '**', redirectTo: '/', pathMatch: 'full' }
+tambien puedo usar redirectTo: 'al Path que quiera dirigirlo'
+
+******************	RouterLink	******************
+Para redirigir una parte de la pagina de forma dinamica, por ejemplo solo el body, teniendo el encabezado
+y el footer fijos, para que de esta manera no se recargue toda la pagina
+
+pegamos en enlace [routerLink]="['/nombre del path']"
+<a [routerLink]="['/nosotros']"> </a>
+
+***************		SI queremos pasarle parametro por url: [routerLink]="['/nombre del path', variable]"
+para obtenerlo, en component.ts:
+1) IMportamos: import {ActivatedRoute} from '@angular/router';
+2) Inyectamos en constructor: constructor(private ruta: ActivatedRoute)
+{
+  this.ruta.params.subscribe( params=>{
+   miDato = params['id'];
+} )
+}
+
+****** ADIC: bootstrap para que tenga color de activo cuando se seleccione una ruta
+"rooterLinkActive" = "active"

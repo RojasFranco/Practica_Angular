@@ -1,0 +1,25 @@
+1) creamos servicio: ng g s nombreServicio
+esto me crea un servicio nombreServicio.ts
+2) dentro del servicio creamos lo que obtendriamos,
+por ejemplo 
+equipo:any[] = [
+{ nombre: 'pepe', especialidad: 'vendedor'},
+{ nombre: 'coki', especialidad: 'nada'}
+]
+
+obtenerEquipo(){
+  return this.equipo;
+}
+
+3) importamos ese servicio en app.module.ts  Y lo agregamos dentro de providers:
+import { nombreClaseEquipoService } from './nombreServicio'
+providers: [nombreClaseEquipoService ]
+
+4) importamos el servicio en el componente que quiera usarlo
+import { nombreClaseEquipoService } from '../nombreServicio'
+
+5) inyectamos el servicio en el constructor del componente para poder usarlo
+equipo: any[] = [];
+constructor(private _servicio:EquipoService ){
+	this.equipo = _servicio.obtenerEquipo();
+}
