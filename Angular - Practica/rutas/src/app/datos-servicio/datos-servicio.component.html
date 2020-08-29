@@ -1,0 +1,14 @@
+<table class="table text-center">
+    <tr>
+        <th>Nombre</th>
+        <th>Apodo</th>
+        <th>Edad</th>
+    </tr>
+
+    <tr *ngFor = "let mascota of mascotasRecibidas">
+        <td>{{ mascota.nombre }}</td>
+        <td>{{ mascota.apodo }} </td>
+        <td>{{ mascota.edad }}</td>
+    </tr>
+
+</table>

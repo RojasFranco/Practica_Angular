@@ -1,0 +1,10 @@
+<form class="m-4">
+    <div class="form-group form-inline">
+        <label for="txtNombre">Ingrese su nombre</label>
+        <input type="text" id="txtNombre" class="form-control ml-3" [(ngModel)] = "nombreCargado" name="nombre">
+    </div>
+    <div class="form-group offset-1">
+        <button class="btn btn-primary" (click) = "cargarNombre()">Cargar Nombre</button>
+    </div>
+</form>
+<hijo></hijo>

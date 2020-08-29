@@ -1,0 +1,71 @@
+<div class="container bg-dark mt-4 text-white text-center p-3">
+    <h1>Primeras Pruebas</h1>    
+</div>
+<hr class="bg-dark">
+<div class="container">
+    <h3>ngIf Else</h3>
+    <br>
+    <button type="button" class="btn btn-primary" (click)= "variablePrueba=!variablePrueba">Activar/Desactivar Parrafo</button>
+    <p>Variable Prueba esta activada? = {{ variablePrueba }}</p>
+
+    <p *ngIf ="variablePrueba; else variableAux" class="text-info "> Lorem ipsum dolor sit amet consectetur.</p>
+    <ng-template #variableAux>
+        <p>entro al else, variable auxiliar activada</p>
+    </ng-template>
+
+
+    <p class="text-secondary">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni.</p>
+</div>
+<br>
+<hr class="bg-dark">
+
+<div class="container">
+    <h3>ngClass</h3>
+
+    <button class="btn btn-primary mr-3" (click) = "activar = 'primero'">Activar Primer parrafo</button>
+    <button class="btn btn-secondary" (click) = "activar = 'segundo'">Activar Segundo parrafo</button>
+    <br><br>
+    <p class="text-primary d-none" [ngClass] = "{ 'd-block' : activar=='primero' }">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat!</p>
+    <p class="text-secondary d-none" [ngClass] = "{ 'd-block' : activar=='segundo' }">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit?</p>
+</div>
+
+<hr class="bg-dark">
+
+<div class="container">
+    <h3>ngFor</h3>
+
+    <table class="table text-center table-hover border">
+        <th>Tipo</th>
+        <th>Nombre</th>
+
+        <tbody>
+            <tr *ngFor = "let animal of animales">
+                <td>{{ animal.tipo }}</td>
+                <td>{{ animal.nombre }}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+    <ul>
+        <li *ngFor = "let curso of cursos">{{ curso }}</li>
+    </ul>
+
+</div>
+
+<hr class="bg-info">
+<br>
+<div class="container">
+    <h3>ngModel</h3>
+
+    <div class="form-group row">
+        <div class="col-2">
+            <label for="">Ingrese su nombre</label>
+        </div>
+        <div class="col-8">
+            <input type="text" [(ngModel)] = "nombreIngresado"  class="form-control">
+        </div>
+    </div>
+
+    <label for="">Su nombre es: <label class="text-primary" >{{ nombreIngresado }}</label></label>
+</div>

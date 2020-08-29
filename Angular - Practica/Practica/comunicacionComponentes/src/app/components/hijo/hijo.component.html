@@ -1,0 +1,6 @@
+<div class="container">
+    <label > Nombre ingresado:</label>
+    
+    <label for="" *ngIf="nombreRecibido; else: sinNombre">{{ nombreRecibido }}</label>
+    <ng-template #sinNombre>No ingreso nombre</ng-template>
+</div>
